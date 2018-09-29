@@ -37,3 +37,9 @@ func topk1(nums []int, k int) []int {
 	}
 	return newNums
 }
+
+// 方法3:基于快排来进行topk排序
+
+func topk2() {
+
+}
