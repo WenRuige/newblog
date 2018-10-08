@@ -46,7 +46,7 @@ func (pq *PriorityQueue) update(item *Item, value string, priority int) {
 	heap.Fix(pq, item.index)
 }
 
-// This example creates a PriorityQueue with some items, adds and manipulates an item,
+// This example creates a PriorityQueue with some items, adds and manipulates(操纵) an item,
 // and then removes the items in priority order.
 func main() {
 	// Some items and their priorities.
@@ -54,12 +54,12 @@ func main() {
 		"banana": 3, "apple": 2, "pear": 4,
 	}
 
-	// Create a priority queue, put the items in it, and
+	// Create a priority(优先) queue, put the items in it, and
 	// establish the priority queue (heap) invariants.
+	// 分配内存
 	pq := make(PriorityQueue, len(items))
 	i := 0
 	for value, priority := range items {
-		//fmt.Println(value, priority)
 		pq[i] = &Item{
 			value:    value,
 			priority: priority,
@@ -67,6 +67,7 @@ func main() {
 		}
 		i++
 	}
+	// 初始化一个堆.
 	heap.Init(&pq)
 
 	// Insert a new item and then modify its priority.
@@ -75,7 +76,7 @@ func main() {
 		priority: 1,
 	}
 	heap.Push(&pq, item)
-	// 更新某个字段,防止重复插入
+	// 更新某个字段,防止重复插入,
 	pq.update(item, item.value, 5)
 
 	// Take the items out; they arrive in decreasing priority order.
