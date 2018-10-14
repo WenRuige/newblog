@@ -50,12 +50,13 @@ cd /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula
 git log python.rb
 
 ```
+**此处需要关闭homebrew的自动更新功能,否则会把分支更新到master上**
 
 之后再次执行`brew install python3`即可
 
 
 然后我发现即时`python3 -v` 显示的是`3.6.x`但是还是无法安装,遂搜索了一下
-```$xslt
+```
 If you have installed Python3 with Homebrew, 
 you can use symlinks to comply with the installer needs (as suggested by @shongololo).
 It seems, the installer needs Python3 installed at (thanks @shongololo): /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.
@@ -100,3 +101,9 @@ TBD
 ```
 export HOMEBREW_NO_AUTO_UPDATE=true
 ```
+
+
+
+#### 其他参考链接
+
+[Installing QGIS on a Macbook](http://www.geothread.net/installing-qgis-on-a-macbook/)
