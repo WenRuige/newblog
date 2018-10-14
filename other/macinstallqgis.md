@@ -1,8 +1,14 @@
+#### `mac` 安装`qgis`的两种方法
+
+
+> 什么是`qgis`
+
+
 
 
 
 * 首先从官网下载`qgis`安装包
-* 安装`python3`
+* `qgis`需要安装`python3.6.x`
 
 
 
@@ -44,10 +50,42 @@ git log python.rb
 
 ```
 
+之后再次执行`brew install python3`即可
+
+
+然后我发现即时`python3 -v` 显示的是`3.6.x`但是还是无法安装,遂搜索了一下
+```$xslt
+If you have installed Python3 with Homebrew, 
+you can use symlinks to comply with the installer needs (as suggested by @shongololo).
+It seems, the installer needs Python3 installed at (thanks @shongololo): /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.
+```
+
+[资料](https://gis.stackexchange.com/questions/274381/installing-qgis3-on-mac)
+
+所以是因为安装器需要将`python3`安装到制定的目录,那么我们做一下软链即可eg:
+
+```
+sudo ln -s /usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework /Library/Frameworks/Python.framework
+
+```
+
+然后发现成功安装了,但是打开会提示某些模块不存在,我们可以直接使用`pip`来进行安装
+
+```
+pip3 install owslib PyYaml psycopg2 jinja2 pygments plotly
+```
 
 
 
 
+##### 另外一种安装方式
+
+```
+brew tap osgeo/osgeo4mac
+brew install osgeo/osgeo4mac/qgis3
+```
+
+`ps`这种方式我没有安装成功,安装后闪退
 
 ##### 题外:`locate`
 
