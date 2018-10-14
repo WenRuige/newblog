@@ -10,8 +10,6 @@
 
 ##### `mac`如何安装`python3`
 
-
-
 ```
 brew search python
 
@@ -33,3 +31,29 @@ sudo mkdir /usr/local/Frameworks $ sudo chown $(whoami):admin /usr/local/Framewo
 python3 -v    //显示Python3即可
 ```
 
+
+安装完成结果发现`qgis`需要安装`python3.6`,搜了一下`brew search python3@`并不能制定版本号,那么有两种解决方案
+
+* 从源码安装
+* 通过更改`repo`来进行安装
+
+```
+cd /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula
+
+git log python.rb
+
+```
+
+
+
+
+
+
+##### 题外:`locate`
+
+
+##### 防止使用`brew install xxx`,使得每次都`updating homebrew`
+
+```
+export HOMEBREW_NO_AUTO_UPDATE=true
+```
