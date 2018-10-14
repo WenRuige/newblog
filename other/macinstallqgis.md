@@ -3,18 +3,18 @@
 
 > 什么是`qgis`
 
+`TBD`
+
 
 
 
 
 * 首先从官网下载`qgis`安装包
-* `qgis`需要安装`python3.6.x`
+* `qgis`需要安装python版本号为`python3.6.x`
 
 
 
-
-
-##### `mac`如何安装`python3`
+##### 介绍`mac`如何安装`python3`依赖
 
 ```
 brew search python
@@ -23,7 +23,7 @@ brew install python3
 ```
 
 
-报错:
+执行上述两行代码发现报错:
 ```
 Linking /usr/local/Cellar/python/3.7.0... Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks
 ```
@@ -32,6 +32,7 @@ Linking /usr/local/Cellar/python/3.7.0... Error: Permission denied @ dir_s_mkdir
 ```
 sudo mkdir /usr/local/Frameworks $ sudo chown $(whoami):admin /usr/local/Frameworks
 ```
+
 
 ```
 python3 -v    //显示Python3即可
@@ -87,7 +88,11 @@ brew install osgeo/osgeo4mac/qgis3
 
 `ps`这种方式我没有安装成功,安装后闪退
 
-##### 题外:`locate`
+##### 题外:安装中一些工具的学习
+
+`locate`
+
+TBD
 
 
 ##### 防止使用`brew install xxx`,使得每次都`updating homebrew`
