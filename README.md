@@ -12,7 +12,7 @@
 
 #### Gis&计算集合相关算法说明
 
-
+* [如何在mac上安装qgis](https://github.com/WenRuige/newblog/blob/master/other/macinstallqgis.md)
 
 
 
