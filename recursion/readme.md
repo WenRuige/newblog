@@ -46,3 +46,15 @@ factorial(1)   =  5 *(4*(3*(2 * factorial(1))))   //那么对于这个递归的�
 ```
 
 
+##### 斐波那契
+斐波那契递归实现
+```
+func fibonacci(num int) int {
+	if num < 2 {
+		return 1
+	}
+	return fibonacci(num-1) + fibonacci(num-2)
+}
+```
+
+![image](recursion-12.png)
