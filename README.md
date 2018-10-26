@@ -14,7 +14,7 @@
 
 
 
-#### ✨Golang相关资料学些
+#### ✨Golang相关学习资料
 * [Golang排序](https://github.com/WenRuige/newblog/blob/master/sequence/golangsequence.md)
 
 #### ✨Gis&计算几何相关算法说明
