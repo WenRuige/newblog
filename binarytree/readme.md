@@ -59,6 +59,7 @@ func inorder(node *TreeNode) {
 	}
 }
 
+// 后序遍历二叉树
 func posorder(node *TreeNode) {
 	if node.Left != nil {
 		posorder(node.Left)
@@ -68,7 +69,32 @@ func posorder(node *TreeNode) {
 	}
 	fmt.Println(node.Val)
 }
+
+层次遍历二叉树
+func levelTree(root *TreeNode) []int {
+	var result []int
+	queue := []*TreeNode{root}
+
+	for len(queue) > 0 {
+		root = queue[0]
+		queue = queue[1:]
+		result = append(result, root.Val)
+		// 先把 Right 边的节点放入 queue 才能保证
+		// 最后剩下的 root 是 bottom left
+		if root.Right != nil {
+			queue = append(queue, root.Right)
+		}
+		if root.Left != nil {
+			queue = append(queue, root.Left)
+		}
+	}
+
+	return result
+}
+
 ```
+
+
 
 ##### 平衡二叉树(`AVL`)
 定义:父节点的左子树和右子树高度只差不能大于1,否则树就失衡了,
