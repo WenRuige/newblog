@@ -81,10 +81,67 @@ func posorder(node *TreeNode) {
 	fmt.Println(node.Val)
 }
 
-func main() {
-	nums := []int{-10, -3, 0, 5, 9}
-	res := sortedArrayToBST(nums)
+func getData(node *TreeNode, data [] int) []int {
+	if node.Left != nil {
+		inorder(node.Left)
+	}
+	data = append(data, node.Val)
+	if node.Right != nil {
+		inorder(node.Right)
+	}
+	return data
+}
 
-	posorder(res)
+// 修剪二叉树
+func trimBST(root *TreeNode, L int, R int) *TreeNode {
+	res := []int{}
+	res = getData(root, res)
+	newArr := []int{}
+
 	fmt.Println(res)
+	for i := 0; i < len(res); i++ {
+		if res[i] >= L && res[i] <= R {
+			newArr = append(newArr, res[i])
+		}
+	}
+	//fmt.Println(newArr)
+	return nil
+}
+// 如果找到了就返回这个跟
+func searchBST(root *TreeNode, val int) *TreeNode {
+	for {
+		if root == nil {
+			return nil
+		}
+
+		if val == root.Val {
+			return root
+		}
+		if val < root.Val {
+			root = root.Left
+			continue
+		}
+
+		if val > root.Val {
+			root = root.Right
+			continue
+		}
+	}
+}
+func main() {
+
+	r := new(TreeNode)
+	r.Val = 1
+	r.Left = new(TreeNode)
+	r.Left.Val = 0
+	r.Right = new(TreeNode)
+	r.Right.Val = 2
+
+	inorder(searchBST(r,1))
+	//inorder(r)
+	//nums := []int{-10, -3, 0, 5, 9}
+	//res := sortedArrayToBST(nums)
+	//
+	//posorder(res)
+	//fmt.Println(res)
 }
