@@ -93,7 +93,46 @@ func levelTree(root *TreeNode) []int {
 }
 
 ```
+##### 二叉树的深度(递归&非递归)
+递归版本
+```
+func getTreeDepthRecursion(node *TreeNode) int {
+	if node == nil {
+		return 0
+	}
+	left := getTreeDepthRecursion(node.Left)
+	right := getTreeDepthRecursion(node.Right)
+	return int(math.Max(float64(left), float64(right))) + 1
+}
 
+```
+非递归版本
+```
+func getTreeDepthNonRecursion(root *TreeNode) int {
+	// 层序遍历求深度
+	queue := make([]*TreeNode, 1, 1024)
+	queue[0] = root
+	n := 1
+	level := 1
+	if len(queue) > 0 {
+		n--
+		node := queue[0]
+		queue = queue[1:]
+		if node.Left != nil {
+			queue = append(queue, node.Left)
+		}
+		if node.Right != nil {
+			queue = append(queue, node.Right)
+		}
+		if n == 0 {
+			level++
+		}
+
+	}
+	return level
+}
+
+```
 
 
 ##### 平衡二叉树(`AVL`)
