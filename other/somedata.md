@@ -11,6 +11,3 @@
 [infoq 实际项目中常见的算法](http://www.infoq.com/cn/news/2013/11/Core-algorithms-deployed)
 
 
-
-技术test
-技术test2
