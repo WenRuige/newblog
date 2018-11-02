@@ -1,9 +1,12 @@
 #### `DFS` 深度优先搜索
 
+`D-F-S`既`Depth-First-Search`
 
 
 
-> 什么是深度优先搜索
+
+
+
 
 
 
@@ -59,3 +62,7 @@ func subsets(nums []int) [][]int {
 	return sets
 }
 ```
+
+
+##### 参考资料
+[参考](http://ju.outofmemory.cn/entry/193794)
