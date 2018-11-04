@@ -9,6 +9,10 @@
 * [np-hard]()
 * [tsp]()
 * [bp]()
+* [trie]()
+* [rtree]()
+* [kdtree]()
+* [btree]()
 
 
 
