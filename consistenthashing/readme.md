@@ -69,5 +69,10 @@ slot映射:现将key做一定运算(crc16,crc32,hash)获得一个整数值,在�
 
 
 
+
+##### 其他
+`CRC校验`:`Cyclic Redundancy Check`又称循环冗余校验,它是一种散列函数,把任意长度的输入通过散列算法,最终变换成固定长度的摘要输出.
+按照`hash`算法,`hash`具有单向性,用来检测或保存数据
+
 参考资料:
 [一致性哈希参考](http://www.zsythink.net/archives/1182/)
