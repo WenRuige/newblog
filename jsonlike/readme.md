@@ -45,13 +45,50 @@ type Person struct {
 
 ```
 
-
-
-
 ##### `protolbuf`
-> what is protobuf
+同`json`相比`protobuf`性能更高,更加规范
+* 编解码速度快,数据体积小
+* 使用统一的规范,不用担心
 
 
 
+
+安装`protolbuf`库文件
+```
+go get github.com/golang/protobuf/proto
+```
+
+安装插件
+```
+go get github.com/golang/protobuf/protoc-gen-go
+
+```
+
+使用
+```
+protoc -h //查看是否安装成功
+
+```
+
+```
+syntax = "proto2";
+package example;
+
+enum FOO { X = 17; };
+
+message Test {
+	required string label = 1;
+	optional int32 type = 2 [default=77];
+	repeated int64 reps = 3;
+}
+```
+
+// 生成Pb文件
+```
+protoc --go_out=. *.proto
+```
+
+
+```
 
 ##### `grpc`
