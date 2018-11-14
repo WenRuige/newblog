@@ -141,3 +141,10 @@ func getTreeDepthNonRecursion(root *TreeNode) int {
 
 
 
+#### 如何构建一颗二叉树
+
+
+
+
+
+

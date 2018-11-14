@@ -84,16 +84,41 @@ func getTreeDepthNonRecursion(root *TreeNode) int {
 	return level
 }
 
-func main() {
-	t := new(TreeNode)
-	t.Val = 1
-	t.Left = new(TreeNode)
-	t.Left.Val = 2
-	t.Right = new(TreeNode)
-	t.Right.Val = 3
+// 构建满二叉树 数组 -> tree
 
-	res := getTreeDepthNonRecursion(t)
-	fmt.Println(res)
+func NewTree() {
+	var node *TreeNode
+	res := generateBinaryTree(node, 123123)
+
+	fmt.Println(res.Val)
+}
+
+func generateBinaryTree(node *TreeNode, num int) *TreeNode {
+	if node == nil {
+		return &TreeNode{num, nil, nil}
+	}
+	if node.Val < num {
+		node.Left = generateBinaryTree(node.Left, num)
+	} else {
+		node.Right = generateBinaryTree(node.Right, num)
+	}
+	return node
+}
+
+// 构建平衡二叉树
+
+func main() {
+
+	NewTree()
+	//t := new(TreeNode)
+	//t.Val = 1
+	//t.Left = new(TreeNode)
+	//t.Left.Val = 2
+	//t.Right = new(TreeNode)
+	//t.Right.Val = 3
+	//
+	//res := getTreeDepthNonRecursion(t)
+	//fmt.Println(res)
 
 	//fmt.Println(recursiveTest(5))
 
