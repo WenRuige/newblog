@@ -88,11 +88,18 @@ func getTreeDepthNonRecursion(root *TreeNode) int {
 
 func NewTree() {
 	var node *TreeNode
-	res := generateBinaryTree(node, 123123)
+	node = generateBinaryTree(node, 123123)
+	node = generateBinaryTree(node, 1)
+	node = generateBinaryTree(node, 2)
+	node = generateBinaryTree(node, 3)
+	node = generateBinaryTree(node, 5)
 
-	fmt.Println(res.Val)
+	res := levelTree(node)
+
+	fmt.Println(res)
 }
 
+// 生成binary Tree
 func generateBinaryTree(node *TreeNode, num int) *TreeNode {
 	if node == nil {
 		return &TreeNode{num, nil, nil}
