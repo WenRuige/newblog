@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Node struct {
 	char   rune // utf-8
@@ -64,7 +67,7 @@ func (t *Trie) prefix(key string) (nodes []*Node) {
 		node = child
 	}
 
-	fmt.Printf("%v+", node)
+	//fmt.Printf("%v+", node)
 	var queue []*Node
 	queue = append(queue, node)
 	for len(queue) > 0 {
@@ -84,18 +87,50 @@ func (t *Trie) prefix(key string) (nodes []*Node) {
 	return
 }
 
-func main() {
-	trie := NewTrie()
-	trie.Add("哈尔滨理工大学", "哈尔滨理工大学")
-	trie.Add("哈尔滨工业大学", "哈尔滨工业大学")
-	trie.Add("哈尔滨商业大学", "哈尔滨商业大学")
-	trie.Add("哈尔滨大学", "哈尔滨大学")
-	trie.Add("黑龙江大学", "黑龙江大学")
-	trie.Add("东京大学", "东京大学")
+func replaceWords(dict []string, sentence string) string {
 
-	res := trie.prefix("东")
-	fmt.Println(res)
+	trie := NewTrie()
+
+	res := strings.Split(sentence, " ")
+	for _, v := range res {
+		trie.Add(v, v)
+	}
+	final := []string{}
 	for _, v := range res {
 		fmt.Println(v)
+		flag := false
+		for _, vv := range dict {
+			tmp := trie.prefix(vv)
+			if tmp != nil {
+				final = append(final, vv)
+				flag = true
+				break
+			}
+		}
+		if !flag {
+			final = append(final, v)
+		}
+
 	}
+	fmt.Println(final)
+
+	return ""
+
 }
+
+func main() {
+	replaceWords([]string{"cat", "bat", "rat"}, "the cattle was rattled by the battery")
+}
+
+//func main() {
+//	trie := NewTrie()
+//	trie.Add("cat", "哈尔滨理工大学")
+//	trie.Add("bat", "哈尔滨工业大学")
+//	trie.Add("rat", "哈尔滨商业大学")
+//
+//	res := trie.prefix("cat")
+//	fmt.Println(res)
+//	for _, v := range res {
+//		fmt.Println(v)
+//	}
+//}
