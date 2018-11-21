@@ -18,6 +18,6 @@
 
 
 
- [参考文档2](http://xiaobaoqiu.github.io/blog/2014/06/17/r-tree/)
- [参考文档](https://blog.csdn.net/v_JULY_v/article/details/6530142)
- [Rtree实现](https://godoc.org/github.com/dhconnelly/rtreego)
+ * [参考文档](http://xiaobaoqiu.github.io/blog/2014/06/17/r-tree/)
+ * [参考文档2](https://blog.csdn.net/v_JULY_v/article/details/6530142)
+ * [Rtree实现](https://godoc.org/github.com/dhconnelly/rtreego)
