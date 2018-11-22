@@ -13,6 +13,7 @@
 * [rtree]()
 * [kdtree]()
 * [btree]()
+* [quick-sort](https://github.com/WenRuige/newblog/tree/master/quicksort)
 
 
 #### 
