@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func quickSort(values []int, left, right int) {
+func quickSort2(values []int, left, right int) {
 	if left < right {
 		// 基准点为数组最左面的点
 		tmp := values[left]
