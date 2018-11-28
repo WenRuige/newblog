@@ -49,3 +49,17 @@ func topk1(nums []int, k int) []int {
 
 分治法的复杂度是大于减治法的
 
+
+
+
+
+
+
+#### `topK`常见的面试算法
+给你一个文件,里面的内容如下
+```
+/url/list 
+/url/list/page
+....
+```
+求出前`topK`个`url`
