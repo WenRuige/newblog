@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"bytes"
+	"os"
 )
 
 // 代表16进制
@@ -13,7 +14,8 @@ const size = 64
 // unsafe sizeof uint64 8
 
 func NewBitMap(nbits int) *BitSet {
-	wordsLen := (nbits - 1) >> 64
+	wordsLen := (nbits - 1) >> 6
+	fmt.Printf("----%d\n",wordsLen)
 	temp := BitSet(make([]uint64, wordsLen+1, wordsLen+1))
 	return &temp
 }
@@ -31,10 +33,14 @@ func (this *BitSet) wordIndex(bitIndex uint64) int {
 // 设置bitSet
 func (this *BitSet) set(bitIndex uint64) {
 	index := this.wordIndex(bitIndex)
+
+	fmt.Println(index)
+	os.Exit(1)
 	//相当于 n % 32 求十进制数在数组a[i]中的下标
 	//  (bitIndex & 0x1F); 0x1F = 64
 
 	//(*this)[index] = (*this)[index] | uint64(0x01) << (bitIndex %64)
+	// 或操作将对应的index 里面的值置成1
 	(*this)[index] |= uint64(0x01) << (bitIndex % 64)
 }
 
@@ -61,12 +67,12 @@ func (this *BitSet) ToString() string {
 }
 
 func main() {
-	bit := NewBitMap(2)
-	bit.set(1)
-	bit.set(6)
+	bit := NewBitMap(100000000000)
+	//bit.set(1)
+	bit.set(100)
 
 	fmt.Println(100%64, )
 	fmt.Printf("%b\n",1<<36)
-	fmt.Println(bit.ToString())
+	//fmt.Println(bit.ToString())
 
 }
