@@ -67,5 +67,7 @@ func main() {
 	bit.set(63)
 	bit.set(1)
 	//bit.clear(10)
-	fmt.Println(bit.ToString())
+	//fmt.Println(bit.ToString())
+
+	fmt.Println(100%64, 100&64)
 }
