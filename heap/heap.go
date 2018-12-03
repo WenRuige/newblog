@@ -16,8 +16,6 @@ func heapSort(arr []int) []int {
 
 	将第一个元素和最后一个元素交换,确保最后一个元素是最大的
 
-
-
 	*/
 	for i := arrLen - 1; i >= 0; i-- {
 		swap(arr, 0, i)
@@ -29,6 +27,7 @@ func heapSort(arr []int) []int {
 }
 
 func buildMaxHeap(arr []int, arrLen int) {
+	// 从中间点开始下沉
 	for i := arrLen / 2; i >= 0; i-- {
 		heapify(arr, i, arrLen)
 	}
