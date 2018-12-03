@@ -18,7 +18,8 @@ func heapSort(arr []int) []int {
 
 
 
-	*/
+	***/
+
 	for i := arrLen - 1; i >= 0; i-- {
 		swap(arr, 0, i)
 		arrLen -= 1
@@ -34,6 +35,7 @@ func buildMaxHeap(arr []int, arrLen int) {
 	}
 }
 
+// 下沉
 func heapify(arr []int, i, arrLen int) {
 	left := 2*i + 1
 	right := 2*i + 2
