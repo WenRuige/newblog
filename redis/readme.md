@@ -4,6 +4,10 @@
 
 
 
+##### redis 命令
+`Redis`几种命令类型`key`,`String`,`Hash`,`List`,`Set`,`Sorted Set`
+
+
 
 
 
