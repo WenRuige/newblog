@@ -26,20 +26,28 @@ import (
 
 // 查看是否是子树
 func issubtree(node *base.TreeNode, node2 *base.TreeNode) bool {
-	if node == nil {
-		return false
-	}
 
-	if node2 == nil {
+	if isTheSame(node, node2) {
 		return true
 	}
 
-	if node.Val != node2.Val {
+	return issubtree(node.Left, node2) && issubtree(node.Right, node2)
+}
+
+// 是否相同
+func isTheSame(root *base.TreeNode, root2 *base.TreeNode) bool {
+	if root == nil {
 		return false
 	}
 
-	return issubtree(node.Left, node2.Left) && issubtree(node.Right, node2.Right)
+	if root2 == nil {
+		return true
+	}
 
+	if root.Val != root2.Val {
+		return false
+	}
+	return isTheSame(root.Left, root2.Left) && isTheSame(root.Right, root2.Right)
 }
 
 func main() {
@@ -55,7 +63,9 @@ func main() {
 	treeNode.Left.Right.Val = 5
 
 	treeNode2 := new(base.TreeNode)
-	treeNode2.Val = 3
+	treeNode2.Val = 1
+	treeNode2.Left = new(base.TreeNode)
+	treeNode2.Left.Val = 2
 
 	flag := issubtree(treeNode, treeNode2)
 	fmt.Println(flag)
