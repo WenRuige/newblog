@@ -23,3 +23,11 @@ TBD
 最大`IP`报文长度为65536字节
 
 标准的MTU 1500字节
+
+
+
+
+
+
+
+[TCP/IP 系列比较好的文章](https://www.cnblogs.com/Jessy/p/3535612.html)
