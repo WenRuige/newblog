@@ -24,6 +24,7 @@ import (
 
 */
 
+// 查看是否是子树
 func issubtree(node *base.TreeNode, node2 *base.TreeNode) bool {
 	if node == nil {
 		return false
@@ -40,6 +41,7 @@ func issubtree(node *base.TreeNode, node2 *base.TreeNode) bool {
 	return issubtree(node.Left, node2.Left) && issubtree(node.Right, node2.Right)
 
 }
+
 func main() {
 	treeNode := new(base.TreeNode)
 	treeNode.Val = 1
