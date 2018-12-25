@@ -18,55 +18,68 @@ import (
 		1						1
 	2		3				2		3
 4				5
+======================================
+		1
+	2		3				2
+4      5  				4		5
+======================================
+
+类似于第二种结构是不行的
 
 
+Q:如何去思考二叉树递归过程
 
 
 */
 
-// 查看是否是子树
-func issubtree(node *base.TreeNode, node2 *base.TreeNode) bool {
+type TreeNode = base.TreeNode
 
-	if isTheSame(node, node2) {
+// 查看是否是子树
+func isSubtree(s *TreeNode, t *TreeNode) bool {
+	if isSame(s, t) {
 		return true
 	}
 
-	return issubtree(node.Left, node2) && issubtree(node.Right, node2)
+	if s == nil { // 如果t的树大于s的树
+		return false
+	}
+	return isSubtree(s.Left, t) || isSubtree(s.Right, t)
 }
 
-// 是否相同
-func isTheSame(root *base.TreeNode, root2 *base.TreeNode) bool {
-	if root == nil {
+func isSame(s *TreeNode, t *TreeNode) bool {
+	if s == nil {
+		return t == nil
+	}
+	if t == nil {
 		return false
 	}
 
-	if root2 == nil {
-		return true
-	}
-
-	if root.Val != root2.Val {
+	if s.Val != t.Val {
 		return false
 	}
-	return isTheSame(root.Left, root2.Left) && isTheSame(root.Right, root2.Right)
+
+	return isSame(s.Left, t.Left) && isSame(s.Right, t.Right)
 }
 
 func main() {
-	treeNode := new(base.TreeNode)
+	treeNode := new(TreeNode)
 	treeNode.Val = 1
-	treeNode.Left = new(base.TreeNode)
+	treeNode.Left = new(TreeNode)
 	treeNode.Left.Val = 2
-	treeNode.Right = new(base.TreeNode)
+	treeNode.Right = new(TreeNode)
 	treeNode.Right.Val = 3
-	treeNode.Left.Left = new(base.TreeNode)
+	treeNode.Left.Left = new(TreeNode)
 	treeNode.Left.Left.Val = 4
-	treeNode.Left.Right = new(base.TreeNode)
+	treeNode.Left.Right = new(TreeNode)
 	treeNode.Left.Right.Val = 5
 
-	treeNode2 := new(base.TreeNode)
-	treeNode2.Val = 1
-	treeNode2.Left = new(base.TreeNode)
-	treeNode2.Left.Val = 2
+	treeNode2 := new(TreeNode)
+	treeNode2.Val = 2
+	treeNode2.Left = new(TreeNode)
+	treeNode2.Left.Val = 4
+	treeNode2.Right = new(TreeNode)
+	treeNode2.Right.Val = 5
 
-	flag := issubtree(treeNode, treeNode2)
+	flag := isSubtree(treeNode, treeNode2)
 	fmt.Println(flag)
 }
