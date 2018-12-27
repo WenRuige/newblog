@@ -47,6 +47,42 @@ func levelOrder(root *base.TreeNode) [][]int {
 	return final
 }
 
+func levelOrderV2(root *base.TreeNode) [][]int {
+	if root == nil {
+		return [][]int{}
+	}
+	queue := []*base.TreeNode{root}
+	res := []int{}
+	final := [][]int{}
+	n := 1
+	for len(queue) != 0 {
+		n--
+		root := queue[0]
+		queue = queue[1:]
+
+		res = append(res, root.Val)
+		if root.Left != nil {
+			queue = append(queue, root.Left)
+		}
+
+		if root.Right != nil {
+			queue = append(queue, root.Right)
+		}
+
+		if n == 0 {
+			n = len(queue)
+			final = append(final, res)
+			res = []int{}
+		}
+	}
+	newFinal := [][]int{}
+	for i := len(final) - 1; i >= 0; i-- {
+		newFinal = append(newFinal, final[i])
+	}
+	return newFinal
+
+}
+
 func main() {
 	treeNode := new(base.TreeNode)
 	treeNode.Val = 1
@@ -55,6 +91,6 @@ func main() {
 	treeNode.Right = new(base.TreeNode)
 	treeNode.Right.Val = 3
 
-	res := levelOrder(treeNode)
+	res := levelOrderV2(treeNode)
 	fmt.Println(res)
 }
