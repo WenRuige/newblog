@@ -54,7 +54,6 @@ func main() {
 	treeNode.Left.Val = 2
 	treeNode.Right = new(base.TreeNode)
 	treeNode.Right.Val = 3
-
 	result := rangeSumBST(treeNode, 1, 2)
 	fmt.Println(result)
 }
